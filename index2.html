@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="theme-color" content="dodgerblue">
+	<title>밀리시타 이벤트 포인트 계산기</title>
+	<link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body id="backgroundbody">
+	<div class="container">
+		<div class="slingname">
+			<img src="./images/slingname333.png">
+		</div>
+		<div class="part_header" id="part_header">
+			<div class="header_black">
+				<div class="header_title" id="title_name">
+					밀리시타 이벤트 포인트 계산기
+				</div>
+				<div class="header_name">
+					<span>업데이트 : 2021년 06월 11일</span>
+					<br>
+					<span><a href="http://twitter.com/ln_sling">만든사람 : 라인슬링</a></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="part_type">
+			<div class="type_theater">
+				<table>
+					<td id="theater_button">시어터</td>
+				</table>
+			</div>
+			<div class="type_tour">
+				<table>
+					<td id="tour_button">투어</td>
+				</table>
+			</div>
+			<div class="type_tune">
+				<table>
+					<td id="tune_button">튠</td>
+				</table>
+			</div>
+			<div class="type_tale">
+				<table>
+					<td id="tale_button">테일</td>
+				</table>
+			</div>
+		</div>
+
+		<div class="part_input" id="part_input">
+			<!--시어터 계산기 리뉴얼 시작-->
+			<div class="input_theater input_main" id="input_theater">
+				<br>
+				<div class="yoso">
+					<div class="yoso2-button">
+						<input type="radio" id="th_select_jpn" value="jpn" name="th_server" checked><label for="th_select_jpn"
+							class="label">일본판</label>
+						<input type="radio" id="th_select_kor" value="kor" name="th_server"><label for="th_select_kor"
+							class="label">한국판</label>
+					</div>
+					<div class="yoso2-button">
+						<input type="radio" id="th_select_MM" value="MM" name="th_diff" checked><label for="th_select_MM">MM</label>
+						<input type="radio" id="th_select_6MIX" value="6MIX" name="th_diff"><label for="th_select_6MIX">6MIX</label>
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>최대스태미너</span>
+						<input class="inputstyle" type="number" id="th_maxsta" value="240">
+					</div>
+					<div class="yoso2">
+						<span>목표 이벤트 포인트</span><input class="inputstyle" type="number" id="th_eventmokpyo" value="300000">
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>현재 이벤트 포인트</span><input class="inputstyle" type="number" id="th_eventnow" value="0">
+					</div>
+					<div class="yoso2">
+						<span>현재 소지 재화</span><input class="inputstyle" type="number" id="th_eventmat" value="0">
+					</div>
+				</div>
+				<div class="yoso calc" id="th_calc">계산</div>
+				<div class="yoso gong100">로코 귀여운</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<p class="yoso-title">라이브런</p>
+					</div>
+					<div class="yoso2">
+						<p class="yoso-title">영업런</p>
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>일반곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="th_selectsong_x1" name="th_song_multi" checked><label for="th_selectsong_x1"
+								class="label">x1</label>
+							<input type="radio" id="th_selectsong_x2" name="th_song_multi"><label for="th_selectsong_x2"
+								class="label">x2</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="th_report_normalsong" value="">
+						<input class="inputstyle result_song" readonly type="text" id="th_report_normalsong2" value="">
+					</div>
+					<div class="yoso2">
+						<span>티켓 10배수 횟수</span>
+						<input class="inputstyle result_song" readonly id="th_report_normalsong_o">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>이벤트곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="th_select_x1" name="th_event_multi" checked><label for="th_select_x1"
+								class="label">x1</label>
+							<input type="radio" id="th_select_x2" name="th_event_multi"><label for="th_select_x2"
+								class="label">x2</label>
+							<input type="radio" id="th_select_x4" name="th_event_multi"><label for="th_select_x4"
+								class="label">x4</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="th_report_eventsong" value="">
+						<input class="inputstyle result_song" readonly type="text" id="th_report_eventsong2" value="">
+						<input class="inputstyle result_song" readonly type="text" id="th_report_eventsong4" value="">
+					</div>
+					<div class="yoso2">
+						<span>이벤트곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="th_select_x1_o" name="th_multi_o" checked><label for="th_select_x1_o">x1</label>
+							<input type="radio" id="th_select_x2_o" name="th_multi_o"><label for="th_select_x2_o">x2</label>
+							<input type="radio" id="th_select_x4_o" name="th_multi_o"><label for="th_select_x4_o">x4</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="th_report_eventsong_o" value="">
+						<input class="inputstyle result_song" readonly type="text" id="th_report_eventsong2_o" value="">
+						<input class="inputstyle result_song" readonly type="text" id="th_report_eventsong4_o" value="">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="th_report_jew">
+					</div>
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="th_report_jew_o">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="th_report_sta">
+						<span class="sta_recover" id="th_sta_recover">스태미너 회복 예정 시간 : </span>
+					</div>
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="th_report_sta_o">
+						<span class="sta_recover" id="th_sta_recover_o">스태미너 회복 예정 시간 : </span>
+					</div>
+				</div>
+				<div class="twittershare">
+					<button onclick="twittertale()">
+						<img src="./images/twitterwhite2.png">
+					</button>
+					<br><br>
+				</div>
+
+
+			</div>
+			<!--시어터 계산기 리뉴얼 끝-->
+
+			<!--투어 계산기 리뉴얼 시작-->
+			<div class="input_tour input_main" id="input_tour">
+				<br>
+				<div class="yoso">
+					<div class="yoso2-button">
+						<input type="radio" id="to_select_jpn" value="jpn" name="to_server" checked><label for="to_select_jpn"
+							class="label">일본판</label>
+						<input type="radio" id="to_select_kor" value="kor" name="to_server"><label for="to_select_kor"
+							class="label">한국판</label>
+					</div>
+					<div class="yoso2-button">
+						<input type="radio" id="to_select_MM" value="MM" name="to_diff" checked><label for="to_select_MM">MM</label>
+						<input type="radio" id="to_select_6MIX" value="6MIX" name="to_diff"><label for="to_select_6MIX">6MIX</label>
+					</div>
+				</div>
+				<div class="yoso">
+					이벤트 곡 배수<br>
+					<div class="yoso2-button">
+						<input type="radio" id="to_select_50" value="5.0" name="to_multi" checked><label
+							for="to_select_50">x5.0</label>
+						<input type="radio" id="to_select_45" value="4.5" name="to_multi"><label for="to_select_45">x4.5</label>
+						<input type="radio" id="to_select_40" value="4.0" name="to_multi"><label for="to_select_40">x4.0</label>
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>최대스태미너</span>
+						<input class="inputstyle" type="number" id="to_maxsta" value="">
+					</div>
+					<div class="yoso2">
+						<span>목표 이벤트 포인트</span><input class="inputstyle" type="number" id="to_eventmokpyo" value="300000">
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>현재 이벤트 포인트</span><input class="inputstyle" type="number" id="to_eventnow" value="0">
+					</div>
+					<div class="yoso2">
+						<span>현재 소지 재화</span><input class="inputstyle" type="number" id="to_eventmat" value="0">
+					</div>
+				</div>
+				<div class="yoso calc" id="to_calc">계산</div>
+				<div class="yoso gong100">로코 귀여운</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<p class="yoso-title">라이브런</p>
+					</div>
+					<div class="yoso2">
+						<p class="yoso-title">영업런</p>
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>일반곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="to_selectsong_x1" name="to_song_multi" checked><label for="to_selectsong_x1"
+								class="label">x1</label>
+							<input type="radio" id="to_selectsong_x2" name="to_song_multi"><label for="to_selectsong_x2"
+								class="label">x2</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="to_report_normalsong" value="">
+						<input class="inputstyle result_song" readonly type="text" id="to_report_normalsong2" value="">
+					</div>
+					<div class="yoso2">
+						<span>영업 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="to_selectoshigoto_x1" name="to_oshigoto_multi" checked><label
+								for="to_selectoshigoto_x1" class="label">x1</label>
+							<input type="radio" id="to_selectoshigoto_x2" name="to_oshigoto_multi"><label for="to_selectoshigoto_x2"
+								class="label">x2</label>
+						</div>
+						<input class="inputstyle result_song" readonly id="to_report_oshigoto_o">
+						<input class="inputstyle result_song" readonly id="to_report_oshigoto2_o">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>이벤트곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="to_select_x1" name="to_event_multi" checked><label for="to_select_x1"
+								class="label">x1</label>
+							<input type="radio" id="to_select_x2" name="to_event_multi"><label for="to_select_x2"
+								class="label">x2</label>
+							<input type="radio" id="to_select_x3" name="to_event_multi"><label for="to_select_x3"
+								class="label">x3</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="to_report_eventsong" value="">
+						<input class="inputstyle result_song" readonly type="text" id="to_report_eventsong2" value="">
+						<input class="inputstyle result_song" readonly type="text" id="to_report_eventsong3" value="">
+					</div>
+					<div class="yoso2">
+						<span>이벤트곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="to_select_x1_o" name="to_multi_o" checked><label for="to_select_x1_o">x1</label>
+							<input type="radio" id="to_select_x2_o" name="to_multi_o"><label for="to_select_x2_o">x2</label>
+							<input type="radio" id="to_select_x3_o" name="to_multi_o"><label for="to_select_x3_o">x3</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="to_report_eventsong_o" value="">
+						<input class="inputstyle result_song" readonly type="text" id="to_report_eventsong2_o" value="">
+						<input class="inputstyle result_song" readonly type="text" id="to_report_eventsong3_o" value="">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="to_report_jew">
+					</div>
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="to_report_jew_o">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="to_report_sta">
+						<span class="sta_recover" id="to_sta_recover">스태미너 회복 예정 시간 : </span>
+					</div>
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="to_report_sta_o">
+						<span class="sta_recover" id="to_sta_recover_o">스태미너 회복 예정 시간 : </span>
+					</div>
+				</div>
+				<div class="twittershare">
+					<button onclick="twittertour()">
+						<img src="./images/twitterwhite2.png">
+					</button>
+					<br><br>
+				</div>
+
+
+			</div>
+			<!--투어 계산기 리뉴얼 끝-->
+
+			<!--튠 계산기 리뉴얼 시작-->
+			<div class="input_tune input_main" id="input_tune">
+				<br>
+				<div class="yoso">
+					<div class="yoso2-button">
+						<input type="radio" id="tu_select_jpn" value="jpn" name="tu_server" checked><label for="tu_select_jpn"
+							class="label">일본판</label>
+						<input type="radio" id="tu_select_kor" value="kor" name="tu_server"><label for="tu_select_kor"
+							class="label">한국판</label>
+					</div>
+					<div class="yoso2-button">
+						<input type="radio" id="tu_select_MM" value="MM" name="tu_diff" checked><label for="tu_select_MM">MM</label>
+						<input type="radio" id="tu_select_6MIX" value="6MIX" name="tu_diff"><label for="tu_select_6MIX">6MIX</label>
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>최대스태미너</span>
+						<input class="inputstyle" type="number" id="tu_maxsta" value="">
+					</div>
+					<div class="yoso2">
+						<span>목표 이벤트 포인트</span><input class="inputstyle" type="number" id="tu_eventmokpyo" value="300000">
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>현재 이벤트 포인트</span><input class="inputstyle" type="number" id="tu_eventnow" value="0">
+					</div>
+					<div class="yoso2">
+						<span>덱 보너스 (%)</span><input class="inputstyle" type="number" id="tu_bonus" value="20">
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>현재 소지 재화</span><input class="inputstyle" type="number" id="tu_eventmat" value="0">
+					</div>
+					<div class="yoso2">
+					</div>
+				</div>
+				<div class="yoso calc" id="tu_calc">계산</div>
+				<div class="yoso gong100">로코 귀여운</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<p class="yoso-title">라이브런</p>
+					</div>
+					<div class="yoso2">
+						<p class="yoso-title">영업런</p>
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>일반곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="tu_selectsong_x1" name="tu_song_multi" checked><label for="tu_selectsong_x1"
+								class="label">x1</label>
+							<input type="radio" id="tu_selectsong_x2" name="tu_song_multi"><label for="tu_selectsong_x2"
+								class="label">x2</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_normalsong" value="">
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_normalsong2" value="">
+					</div>
+					<div class="yoso2">
+						<span>티켓 10배수 횟수</span>
+						<input class="inputstyle result_song" readonly id="tu_report_normalsong_o">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>이벤트곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="tu_select_x1" name="tu_event_multi" checked><label for="tu_select_x1"
+								class="label">x1</label>
+							<input type="radio" id="tu_select_x2" name="tu_event_multi"><label for="tu_select_x2"
+								class="label">x2</label>
+							<input type="radio" id="tu_select_x4" name="tu_event_multi"><label for="tu_select_x4"
+								class="label">x4</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_eventsong" value="">
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_eventsong2" value="">
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_eventsong4" value="">
+					</div>
+					<div class="yoso2">
+						<span>이벤트곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="tu_select_x1_o" name="tu_multi_o" checked><label for="tu_select_x1_o">x1</label>
+							<input type="radio" id="tu_select_x2_o" name="tu_multi_o"><label for="tu_select_x2_o">x2</label>
+							<input type="radio" id="tu_select_x4_o" name="tu_multi_o"><label for="tu_select_x4_o">x4</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_eventsong_o" value="">
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_eventsong2_o" value="">
+						<input class="inputstyle result_song" readonly type="text" id="tu_report_eventsong4_o" value="">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="tu_report_jew">
+					</div>
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="tu_report_jew_o">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="tu_report_sta">
+						<span class="sta_recover" id="tu_sta_recover">스태미너 회복 예정 시간 : </span>
+					</div>
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="tu_report_sta_o">
+						<span class="sta_recover" id="tu_sta_recover_o">스태미너 회복 예정 시간 : </span>
+					</div>
+				</div>
+				<div class="twittershare">
+					<button onclick="twittertune()">
+						<img src="./images/twitterwhite2.png">
+					</button>
+					<br><br>
+				</div>
+
+
+			</div>
+			<!--튠 계산기 리뉴얼 끝-->
+
+			<!--테일 계산기 리뉴얼 시작-->
+			<div class="input_tale input_main" id="input_tale">
+				<br>
+				<div class="yoso">
+					<div class="yoso2-button">
+						<input type="radio" id="ta_select_jpn" value="jpn" name="ta_server" checked><label for="ta_select_jpn"
+							class="label">일본판</label>
+						<input type="radio" id="to_select_kor" value="kor" name="ta_server"><label for="ta_select_kor"
+							class="label">한국판</label>
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>최대스태미너</span>
+						<input class="inputstyle" type="number" id="ta_maxsta" value="">
+					</div>
+					<div class="yoso2">
+						<span>목표 이벤트 포인트</span><input class="inputstyle" type="number" id="ta_eventmokpyo" value="300000">
+					</div>
+				</div>
+				<div class="yoso">
+					<div class="yoso2">
+						<span>현재 이벤트 포인트</span><input class="inputstyle" type="number" id="ta_eventnow" value="0">
+					</div>
+					<div class="yoso2">
+					</div>
+				</div>
+				<div class="yoso calc" id="ta_calc">계산</div>
+				<div class="yoso gong100">로코 귀여운</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<p class="yoso-title">라이브런</p>
+					</div>
+					<div class="yoso2">
+						<p class="yoso-title">영업런</p>
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>일반곡 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="ta_selectsong_x1" name="ta_song_multi" checked><label for="ta_selectsong_x1"
+								class="label">x1</label>
+							<input type="radio" id="ta_selectsong_x2" name="ta_song_multi"><label for="ta_selectsong_x2"
+								class="label">x2</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="ta_report_normalsong" value="">
+						<input class="inputstyle result_song" readonly type="text" id="ta_report_normalsong2" value="">
+					</div>
+					<div class="yoso2">
+						<span>영업 횟수</span>
+						<div class="yoso2-button">
+							<input type="radio" id="ta_selectoshigoto_x1" name="ta_oshigoto_multi" checked><label
+								for="ta_selectoshigoto_x1" class="label">x1</label>
+							<input type="radio" id="ta_selectoshigoto_x2" name="ta_oshigoto_multi"><label for="ta_selectoshigoto_x2"
+								class="label">x2</label>
+						</div>
+						<input class="inputstyle result_song" readonly type="text" id="ta_report_normalsong_o" value="">
+						<input class="inputstyle result_song" readonly type="text" id="ta_report_normalsong2_o" value="">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>엘레강트 스테이지 횟수</span>
+						<input class="inputstyle result_song" readonly type="text" id="ta_report_eventsong" value="">
+					</div>
+					<div class="yoso2">
+						<span>엘레강트 스테이지 횟수</span>
+						<input class="inputstyle result_song" readonly type="text" id="ta_report_eventsong_o" value="">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="ta_report_jew">
+					</div>
+					<div class="yoso2">
+						<span>소모 주얼</span>
+						<input class="inputstyle" readonly id="ta_report_jew_o">
+					</div>
+				</div>
+				<div class="yoso result">
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="ta_report_sta">
+						<span class="sta_recover" id="ta_sta_recover">스태미너 회복 예정 시간 : </span>
+					</div>
+					<div class="yoso2">
+						<span>소모 스태미너</span>
+						<input class="inputstyle" readonly id="ta_report_sta_o">
+						<span class="sta_recover" id="ta_sta_recover_o">스태미너 회복 예정 시간 : </span>
+					</div>
+				</div>
+				<div class="twittershare">
+					<button onclick="twittertale()">
+						<img src="./images/twitterwhite2.png">
+					</button>
+					<br><br>
+				</div>
+
+
+			</div>
+			<!--테일 계산기 리뉴얼 끝-->
+		</div>
+
+		<div class="part_footer"><br>
+			<span class="caution">※ 이 계산기는 정확한 결과를 보장하지 않습니다. 참고하는 용도로만 사용해주세요.</span><br><br>
+			※ 모든 계산은 라이브 S랭크 클리어를 기준으로 합니다.<br>
+			※ 시어터, 튠 영업런에서는 티켓을 10배수로 사용하는것만을 기준으로 합니다.<br>
+			※ 투어, 테일 영업런에서는 찬스가 뜨지 않는 최저치를 기준으로 합니다.<br>
+			※ 투어 일반곡은 PUSH 대상인 1.2배수 플레이를 기준으로 합니다.<br>
+			※ 테일 이벤트는 라이브런의 경우 세 곡 연속 라이브, 영업런의 경우 세 곡 연속 영업을 돌리는 것을 기본으로 합니다.<br><br>
+			※ 구글 크롬, 파이어폭스, 웨일브라우저 외에는 정확하게 작동하지 않을 수도 있습니다.<br>
+			※ 브라우저 설정에서 자바스크립트 사용을 막아둔 경우엔 사용 할 수 없습니다.<br><br>
+			※ 문의 사항이 있을 경우 아래 연락처로 연락해주세요.<br>
+			메일 : linesling@gmail.com<br>
+			트위터 : <a href="http://twitter.com/ln_sling">@Ln_sling</a><br>
+			블로그 : <a href="http://linesling.tistory.com">linesling.tistory.com</a><br>
+			<br>
+			<a href="https://linesling.tistory.com/tag/%EB%A1%9C%EC%BD%94">
+				ロコのレゾンデートルってプレゼンテーションそのものなんです！
+			</a><br>
+			<img class="bottomslingname" src="./images/slingname333.png">
+			<br>
+		</div>
+	</div>
+	<script>
+		function twittertune() {
+			javascript: window.open('https://twitter.com/intent/tweet?text=튠 이벤트 목표 ' +
+				document.getElementById("tu_eventmokpyo").value +
+				'pt까지%0A%0A' +
+				'라이브런 : 일반곡 ' +
+				document.getElementById("tu_report_normalsong").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("tu_report_eventsong").value +
+				'회, 주얼 ' +
+				document.getElementById("tu_report_jew").value +
+				'개 소모 예상%0A' +
+				'영업런 : 10배수 티켓 라이브 ' +
+				document.getElementById("tu_report_normalsong_o").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("tu_report_eventsong_o").value +
+				'회, 주얼 ' +
+				document.getElementById("tu_report_jew_o").value +
+				'개 소모 예상%0A%0A%23밀리시타_계산기 https%3A%2F%2Fmilli-calc.tistory.com%2F'
+				, '_blank', "height=400,width=600"); return false;
+		}
+
+		function twittertheater() {
+			javascript: window.open('https://twitter.com/intent/tweet?text=시어터 이벤트 목표 ' +
+				document.getElementById("th_eventmokpyo").value +
+				'pt까지%0A%0A' +
+				'라이브런 : 일반곡 ' +
+				document.getElementById("th_report_normalsong").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("th_report_eventsong").value +
+				'회, 주얼 ' +
+				document.getElementById("th_report_jew").value +
+				'개 소모 예상%0A' +
+				'영업런 : 10배수 티켓 라이브 ' +
+				document.getElementById("th_report_normalsong_o").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("th_report_eventsong_o").value +
+				'회, 주얼 ' +
+				document.getElementById("th_report_jew_o").value +
+				'개 소모 예상%0A%0A%23밀리시타_계산기 https%3A%2F%2Fmilli-calc.tistory.com%2F'
+				, '_blank', "height=400,width=600"); return false;
+		}
+
+		function twittertour() {
+			javascript: window.open('https://twitter.com/intent/tweet?text=투어 이벤트 목표 ' +
+				document.getElementById("to_eventmokpyo").value +
+				'pt까지%0A%0A' +
+				'라이브런 : 일반곡 ' +
+				document.getElementById("to_report_normalsong").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("to_report_eventsong").value +
+				'회, 주얼 ' +
+				document.getElementById("to_report_jew").value +
+				'개 소모 예상%0A' +
+				'영업런 : 영업 ' +
+				document.getElementById("to_report_oshigoto_o").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("to_report_eventsong_o").value +
+				'회, 주얼 ' +
+				document.getElementById("to_report_jew_o").value +
+				'개 소모 예상%0A%0A%23밀리시타_계산기 https%3A%2F%2Fmilli-calc.tistory.com%2F'
+				, '_blank', "height=400,width=600"); return false;
+		}
+
+
+		function twittertale() {
+			javascript: window.open('https://twitter.com/intent/tweet?text=테일 이벤트 목표 ' +
+				document.getElementById("ta_eventmokpyo").value +
+				'pt까지%0A%0A' +
+				'라이브런 : 일반곡 ' +
+				document.getElementById("ta_report_normalsong").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("ta_report_eventsong").value +
+				'회, 주얼 ' +
+				document.getElementById("ta_report_jew").value +
+				'개 소모 예상%0A' +
+				'영업런 : 영업 ' +
+				document.getElementById("ta_report_normalsong_o").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("ta_report_eventsong_o").value +
+				'회, 주얼 ' +
+				document.getElementById("ta_report_jew_o").value +
+				'개 소모 예상%0A%0A%23밀리시타_계산기 https%3A%2F%2Fmilli-calc.tistory.com%2F'
+				, '_blank', "height=400,width=600"); return false;
+		}
+
+
+		function twitteranniv() {
+			javascript: window.open('https://twitter.com/intent/tweet?text=밀리시타 3주년 이벤트 목표 ' +
+				document.getElementById("anniv_eventmokpyo").value +
+				'pt까지%0A%0A' +
+				'라이브런 : 일반곡 ' +
+				document.getElementById("anniv_report_normalsong").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("anniv_report_eventsong").value +
+				'회, 주얼 ' +
+				document.getElementById("anniv_report_jew").value +
+				'개 소모 예상%0A' +
+				'영업런 : 15배 티켓 라이브 ' +
+				document.getElementById("anniv_report_normalsong_o").value +
+				'회, 이벤트곡 ' +
+				document.getElementById("anniv_report_eventsong_o").value +
+				'회, 주얼 ' +
+				document.getElementById("anniv_report_jew_o").value +
+				'개 소모 예상%0A%0A%23밀리시타_계산기 https%3A%2F%2Fmilli-calc.tistory.com%2F'
+				, '_blank', "height=400,width=600"); return false;
+		}
+
+
+
+
+		document.getElementById("tour_button").onclick = function () {
+			document.getElementById("input_theater").style.display = "none";
+			document.getElementById("input_tune").style.display = "none";
+			document.getElementById("input_tale").style.display = "none";
+			document.getElementById("input_tour").style.display = "block";
+			document.getElementById("title_name").style.background = "var(--tour-color)";
+		}
+
+		document.getElementById("theater_button").onclick = function () {
+			document.getElementById("input_theater").style.display = "inline-block"; document.getElementById("input_tune").style.display = "none";
+			document.getElementById("input_tale").style.display = "none";
+			document.getElementById("input_tour").style.display = "none";
+			document.getElementById("title_name").style.background = "var(--theater-color)";
+		}
+
+
+		document.getElementById("tune_button").onclick = function () {
+			document.getElementById("input_theater").style.display = "none";
+			document.getElementById("input_tour").style.display = "none";
+			document.getElementById("input_tune").style.display = "block";
+			document.getElementById("input_tale").style.display = "none";
+			document.getElementById("title_name").style.background = "var(--tune-color)";
+		}
+
+		document.getElementById("tale_button").onclick = function () {
+			document.getElementById("input_theater").style.display = "none";
+			document.getElementById("input_tour").style.display = "none";
+			document.getElementById("input_tune").style.display = "none";
+			document.getElementById("input_tale").style.display = "block";
+			document.getElementById("title_name").style.background = "var(--tale-color)";
+		}
+
+		document.getElementById("th_selectsong_x1").onclick = function () {
+			document.getElementById("th_report_normalsong").style.display = "block";
+			document.getElementById("th_report_normalsong2").style.display = "none";
+		}
+		document.getElementById("th_selectsong_x2").onclick = function () {
+			document.getElementById("th_report_normalsong2").style.display = "block";
+			document.getElementById("th_report_normalsong").style.display = "none";
+		}
+		document.getElementById("th_select_x1").onclick = function () {
+			document.getElementById("th_report_eventsong").style.display = "block";
+			document.getElementById("th_report_eventsong2").style.display = "none";
+			document.getElementById("th_report_eventsong4").style.display = "none";
+		}
+		document.getElementById("th_select_x2").onclick = function () {
+			document.getElementById("th_report_eventsong2").style.display = "block";
+			document.getElementById("th_report_eventsong").style.display = "none";
+			document.getElementById("th_report_eventsong4").style.display = "none";
+		}
+		document.getElementById("th_select_x4").onclick = function () {
+			document.getElementById("th_report_eventsong4").style.display = "block";
+			document.getElementById("th_report_eventsong").style.display = "none";
+			document.getElementById("th_report_eventsong2").style.display = "none";
+		}
+		document.getElementById("th_select_x1_o").onclick = function () {
+			document.getElementById("th_report_eventsong_o").style.display = "block";
+			document.getElementById("th_report_eventsong2_o").style.display = "none";
+			document.getElementById("th_report_eventsong4_o").style.display = "none";
+		}
+		document.getElementById("th_select_x2_o").onclick = function () {
+			document.getElementById("th_report_eventsong2_o").style.display = "block";
+			document.getElementById("th_report_eventsong_o").style.display = "none";
+			document.getElementById("th_report_eventsong4_o").style.display = "none";
+		}
+		document.getElementById("th_select_x4_o").onclick = function () {
+			document.getElementById("th_report_eventsong4_o").style.display = "block";
+			document.getElementById("th_report_eventsong_o").style.display = "none";
+			document.getElementById("th_report_eventsong2_o").style.display = "none";
+		}
+
+
+		document.getElementById("to_selectsong_x1").onclick = function () {
+			document.getElementById("to_report_normalsong").style.display = "block";
+			document.getElementById("to_report_normalsong2").style.display = "none";
+		}
+		document.getElementById("to_selectsong_x2").onclick = function () {
+			document.getElementById("to_report_normalsong2").style.display = "block";
+			document.getElementById("to_report_normalsong").style.display = "none";
+		}
+		document.getElementById("to_select_x1").onclick = function () {
+			document.getElementById("to_report_eventsong").style.display = "block";
+			document.getElementById("to_report_eventsong2").style.display = "none";
+			document.getElementById("to_report_eventsong3").style.display = "none";
+		}
+		document.getElementById("to_select_x2").onclick = function () {
+			document.getElementById("to_report_eventsong2").style.display = "block";
+			document.getElementById("to_report_eventsong").style.display = "none";
+			document.getElementById("to_report_eventsong3").style.display = "none";
+		}
+		document.getElementById("to_select_x3").onclick = function () {
+			document.getElementById("to_report_eventsong3").style.display = "block";
+			document.getElementById("to_report_eventsong").style.display = "none";
+			document.getElementById("to_report_eventsong2").style.display = "none";
+		}
+		document.getElementById("to_select_x1_o").onclick = function () {
+			document.getElementById("to_report_eventsong_o").style.display = "block";
+			document.getElementById("to_report_eventsong2_o").style.display = "none";
+			document.getElementById("to_report_eventsong3_o").style.display = "none";
+		}
+		document.getElementById("to_select_x2_o").onclick = function () {
+			document.getElementById("to_report_eventsong2_o").style.display = "block";
+			document.getElementById("to_report_eventsong_o").style.display = "none";
+			document.getElementById("to_report_eventsong3_o").style.display = "none";
+		}
+		document.getElementById("to_select_x3_o").onclick = function () {
+			document.getElementById("to_report_eventsong3_o").style.display = "block";
+			document.getElementById("to_report_eventsong_o").style.display = "none";
+			document.getElementById("to_report_eventsong2_o").style.display = "none";
+		}
+		document.getElementById("to_selectoshigoto_x1").onclick = function () {
+			document.getElementById("to_report_oshigoto_o").style.display = "block";
+			document.getElementById("to_report_oshigoto2_o").style.display = "none";
+		}
+		document.getElementById("to_selectoshigoto_x2").onclick = function () {
+			document.getElementById("to_report_oshigoto2_o").style.display = "block";
+			document.getElementById("to_report_oshigoto_o").style.display = "none";
+		}
+
+		document.getElementById("tu_selectsong_x1").onclick = function () {
+			document.getElementById("tu_report_normalsong").style.display = "block";
+			document.getElementById("tu_report_normalsong2").style.display = "none";
+		}
+		document.getElementById("tu_selectsong_x2").onclick = function () {
+			document.getElementById("tu_report_normalsong2").style.display = "block";
+			document.getElementById("tu_report_normalsong").style.display = "none";
+		}
+		document.getElementById("tu_select_x1").onclick = function () {
+			document.getElementById("tu_report_eventsong").style.display = "block";
+			document.getElementById("tu_report_eventsong2").style.display = "none";
+			document.getElementById("tu_report_eventsong4").style.display = "none";
+		}
+		document.getElementById("tu_select_x2").onclick = function () {
+			document.getElementById("tu_report_eventsong2").style.display = "block";
+			document.getElementById("tu_report_eventsong").style.display = "none";
+			document.getElementById("tu_report_eventsong4").style.display = "none";
+		}
+		document.getElementById("tu_select_x4").onclick = function () {
+			document.getElementById("tu_report_eventsong4").style.display = "block";
+			document.getElementById("tu_report_eventsong").style.display = "none";
+			document.getElementById("tu_report_eventsong2").style.display = "none";
+		}
+		document.getElementById("tu_select_x1_o").onclick = function () {
+			document.getElementById("tu_report_eventsong_o").style.display = "block";
+			document.getElementById("tu_report_eventsong2_o").style.display = "none";
+			document.getElementById("tu_report_eventsong4_o").style.display = "none";
+		}
+		document.getElementById("tu_select_x2_o").onclick = function () {
+			document.getElementById("tu_report_eventsong2_o").style.display = "block";
+			document.getElementById("tu_report_eventsong_o").style.display = "none";
+			document.getElementById("tu_report_eventsong4_o").style.display = "none";
+		}
+		document.getElementById("tu_select_x4_o").onclick = function () {
+			document.getElementById("tu_report_eventsong4_o").style.display = "block";
+			document.getElementById("tu_report_eventsong_o").style.display = "none";
+			document.getElementById("tu_report_eventsong2_o").style.display = "none";
+		}
+
+		document.getElementById("ta_selectsong_x1").onclick = function () {
+			document.getElementById("ta_report_normalsong").style.display = "block";
+			document.getElementById("ta_report_normalsong2").style.display = "none";
+		}
+		document.getElementById("ta_selectsong_x2").onclick = function () {
+			document.getElementById("ta_report_normalsong2").style.display = "block";
+			document.getElementById("ta_report_normalsong").style.display = "none";
+		}
+		document.getElementById("ta_selectoshigoto_x1").onclick = function () {
+			document.getElementById("ta_report_normalsong_o").style.display = "block";
+			document.getElementById("ta_report_normalsong2_o").style.display = "none";
+		}
+		document.getElementById("ta_selectoshigoto_x2").onclick = function () {
+			document.getElementById("ta_report_normalsong2_o").style.display = "block";
+			document.getElementById("ta_report_normalsong_o").style.display = "none";
+		}
+
+
+	</script>
+
+
+
+	<script>
+
+
+		function setCookie(name, value, exp) {
+			var date = new Date();
+			date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+			document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+		}//쿠키 만드는 함수
+		function getCookie(name) {
+			var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+			return value ? value[2] : null;
+		}//쿠키 가져오는 함수
+
+
+		// 시어터 이벤트 계산 시작
+
+
+		document.getElementById("th_calc").onclick = function () {
+			var th_maxsta = document.getElementById('th_maxsta').value;
+			var th_server = document.querySelector('input[name="th_server"]:checked').value;
+			var th_diff = document.querySelector('input[name="th_diff"]:checked').value;
+			var th_eventnow = document.getElementById('th_eventnow').value;
+			var th_eventmat = document.getElementById('th_eventmat').value;
+			var th_eventmokpyo = document.getElementById('th_eventmokpyo').value;
+			var norsta, gainmat, usemat, gainpoint, norsta_o, gainmat_o, usemat_o, gainpoint_o;
+
+			//영업런 소비는 10배수 기준으로, 이벤트 곡은 포인트 소모 같아서 하나만 씀
+			if (th_diff == "MM" && th_server == "jpn") { //일본서버MM
+				norsta = 30; gainmat = 85; usemat = 180; gainpoint = 537;
+				norsta_o = 300; gainmat_o = 595;
+			}
+			if (th_diff == "6MIX" && th_server == "jpn") { //일본서버6mix
+				norsta = 25; gainmat = 64; usemat = 180; gainpoint = 537;
+				norsta_o = 250; gainmat_o = 448;
+			}
+			if (th_diff == "MM" && th_server == "kor") { //한국서버MM
+				norsta = 30; gainmat = 85; usemat = 180; gainpoint = 537;
+				norsta_o = 300; gainmat_o = 595;
+			}
+			if (th_diff == "6MIX" && th_server == "kor") { //한국서버6MIX
+				norsta = 25; gainmat = 64; usemat = 150; gainpoint = 447;
+				norsta_o = 250; gainmat_o = 448;
+			}
+
+			var cons = ((gainpoint * gainmat) / usemat + gainmat) / norsta;
+			var cons_o = ((gainpoint * gainmat_o) / usemat + gainmat_o) / norsta_o;
+			//ㄴ스태1당 얻는 이벤트 포인트를 계산한 효율
+
+
+			var eventnokori = th_eventmokpyo - th_eventnow - Math.floor(th_eventmat / usemat) * gainpoint;
+			//ㄴ앞으로 모아야야 할 이벤트 포인트
+
+			if (eventnokori < 0) {
+				alert('이미 목표를 달성했거나, 보유하고 있는 재화를 모두 소모하면 목표 포인트를 초과 달성 할 수 있습니다.');
+			}
+
+			var sobista = eventnokori / cons;
+			var sobista_o = eventnokori / cons_o;
+			//ㄴ앞으로 소모해야 할 스태미너
+			var playnormalsong = Math.ceil(sobista / norsta);
+			var playnormalsong_o = Math.ceil(sobista_o / norsta_o);
+			//플레이해야할 일반곡
+			var playeventsong = Math.ceil((playnormalsong * gainmat) / usemat) + Math.ceil(th_eventmat / usemat);
+			var playeventsong_o = Math.ceil((playnormalsong_o * gainmat_o) / usemat) + Math.ceil(th_eventmat / usemat);
+			//플레이해야할 이벤트곡
+
+			document.getElementById('th_report_jew').value = Math.ceil(sobista / th_maxsta) * 50;
+			document.getElementById('th_report_jew_o').value = Math.ceil(sobista_o / th_maxsta) * 50;
+			document.getElementById('th_report_sta').value = Math.ceil(sobista);
+			document.getElementById('th_report_sta_o').value = Math.ceil(sobista_o);
+
+			var sobista_final = (Math.ceil(sobista)) * 5;
+			var sobista_min = sobista_final % 60;
+			var sobista_hour = ((sobista_final - sobista_min) / 60) % 24;
+			var sobista_day = (sobista_final - sobista_min - sobista_hour * 60) / (24 * 60);
+
+			var sobista_final_o = Math.ceil(sobista_o) * 5;
+			var sobista_min_o = sobista_final_o % 60;
+			var sobista_hour_o = ((sobista_final_o - sobista_min_o) / 60) % 24;
+			var sobista_day_o = (sobista_final_o - sobista_min_o - sobista_hour_o * 60) / (24 * 60);
+
+			document.getElementById('th_sta_recover').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day + '일 ' + sobista_hour + '시간 ' + sobista_min + '분';
+			document.getElementById('th_sta_recover_o').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day_o + '일 ' + sobista_hour_o + '시간 ' + sobista_min_o + '분';
+
+
+			document.getElementById('th_report_normalsong').value = playnormalsong;
+			if (playnormalsong % 2 == 0) {
+				document.getElementById('th_report_normalsong2').value = playnormalsong / 2;
+			} else {
+				document.getElementById('th_report_normalsong2').value = (playnormalsong - 1) / 2 + '(+1)';
+			}
+			document.getElementById('th_report_normalsong_o').value = playnormalsong_o;
+
+			document.getElementById('th_report_eventsong').value = playeventsong;
+			if (playeventsong % 2 == 0) {
+				document.getElementById('th_report_eventsong2').value = playeventsong / 2;
+			} else {
+				document.getElementById('th_report_eventsong2').value = (playeventsong - 1) / 2 + '(+1)';
+			}
+			if (playeventsong % 4 == 0) {
+				document.getElementById('th_report_eventsong4').value = playeventsong / 4;
+			} else {
+				document.getElementById('th_report_eventsong4').value = (playeventsong - playeventsong % 4) / 4 + '(+' + playeventsong % 4 + ')';
+			}
+
+			document.getElementById('th_report_eventsong_o').value = playeventsong_o;
+			if (playeventsong_o % 2 == 0) {
+				document.getElementById('th_report_eventsong2_o').value = playeventsong_o / 2;
+			} else {
+				document.getElementById('th_report_eventsong2_o').value = (playeventsong_o - 1) / 2 + '(+1)';
+			}
+			if (playeventsong_o % 4 == 0) {
+				document.getElementById('th_report_eventsong4_o').value = playeventsong_o / 4;
+			} else {
+				document.getElementById('th_report_eventsong4_o').value = (playeventsong_o - playeventsong_o % 4) / 4 + '(+' + playeventsong_o % 4 + ')';
+			}
+
+			setCookie('cookie_th_maxsta', th_maxsta, 180);
+
+		}
+		// 시어터 이벤트 계산 끝
+
+
+
+		// 투어 이벤트 계산 시작
+		document.getElementById("to_calc").onclick = function () {
+			var to_maxsta = document.getElementById('to_maxsta').value;
+			var to_server = document.querySelector('input[name="to_server"]:checked').value;
+			var to_diff = document.querySelector('input[name="to_diff"]:checked').value;
+			var to_multi = document.querySelector('input[name="to_multi"]:checked').value;
+			var to_eventnow = document.getElementById('to_eventnow').value;
+			var to_eventmat = document.getElementById('to_eventmat').value;
+			var to_eventmokpyo = document.getElementById('to_eventmokpyo').value;
+			var norsta, gainmat, gainnormalpoint, usemat, gainpoint, norsta_o, gainmat_o, usemat_o, gainpoint_o, gainnormalpoint_o;
+			to_eventmat = to_eventmat * 20;
+
+			//영업런 소비는 10배수 기준으로
+			if (to_diff == "MM" && to_server == "jpn") { //일본서버MM
+				norsta = 30; gainmat = 6; gainnormalpoint = 140; usemat = 20; gainpoint = 144;
+				gainnormalpoint_o = 48;
+			}
+			if (to_diff == "MM" && to_server == "kor") { //한국서버MM
+				norsta = 30; gainmat = 6; gainnormalpoint = 140; usemat = 20; gainpoint = 144;
+				gainnormalpoint_o = 48;
+			}
+			if (to_diff == "6MIX" && to_server == "kor") { //일본서버6믹
+				norsta = 25; gainmat = 5; gainnormalpoint = 116; usemat = 20; gainpoint = 144;
+				gainnormalpoint_o = 40;
+			}
+			if (to_diff == "6MIX" && to_server == "kor") { //한국서버6믹
+				norsta = 25; gainmat = 5; gainnormalpoint = 116; usemat = 20; gainpoint = 144;
+				gainnormalpoint_o = 40;
+			}
+
+			var cons = (gainnormalpoint / norsta) + (gainmat * gainpoint * to_multi) / (norsta * usemat);
+			var cons_o = (gainnormalpoint_o / norsta) + (gainmat * gainpoint * to_multi) / (norsta * usemat);
+
+
+			var eventnokori = to_eventmokpyo - to_eventnow - Math.floor(to_eventmat / usemat) * gainpoint * to_multi;
+
+			if (eventnokori < 0) {
+				alert('이미 목표를 달성했거나, 보유하고 있는 재화를 모두 소모하면 목표 포인트를 초과 달성 할 수 있습니다.');
+			}
+
+			//ㄴ앞으로 모아야야 할 이벤트 포인트
+			var sobista = eventnokori / cons;
+			var sobista_o = eventnokori / cons_o;
+			//ㄴ앞으로 소모해야 할 스태미너
+			var playnormalsong = Math.floor(sobista / norsta);
+			var playnormalsong_o = Math.floor(sobista_o / norsta);
+			//플레이해야할 일반곡
+			var playeventsong = Math.floor((playnormalsong * gainmat) / usemat) + Math.floor(to_eventmat / usemat);
+			var playeventsong_o = Math.floor((playnormalsong_o * gainmat) / usemat) + Math.floor(to_eventmat / usemat);
+			//플레이해야할 이벤트곡
+
+			document.getElementById('to_report_jew').value = Math.ceil(sobista / to_maxsta) * 50;
+			document.getElementById('to_report_jew_o').value = Math.ceil(sobista_o / to_maxsta) * 50;
+			document.getElementById('to_report_sta').value = Math.ceil(sobista);
+			document.getElementById('to_report_sta_o').value = Math.ceil(sobista_o);
+
+			var sobista_final = Math.ceil(sobista) * 5;
+			var sobista_min = sobista_final % 60;
+			var sobista_hour = ((sobista_final - sobista_min) / 60) % 24;
+			var sobista_day = (sobista_final - sobista_min - sobista_hour * 60) / (24 * 60);
+
+			var sobista_final_o = Math.ceil(sobista_o) * 5;
+			var sobista_min_o = sobista_final_o % 60;
+			var sobista_hour_o = ((sobista_final_o - sobista_min_o) / 60) % 24;
+			var sobista_day_o = (sobista_final_o - sobista_min_o - sobista_hour_o * 60) / (24 * 60);
+
+			document.getElementById('to_sta_recover').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day + '일 ' + sobista_hour + '시간 ' + sobista_min + '분';
+			document.getElementById('to_sta_recover_o').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day_o + '일 ' + sobista_hour_o + '시간 ' + sobista_min_o + '분';
+
+
+			document.getElementById('to_report_normalsong').value = playnormalsong;
+			if (playnormalsong % 2 == 0) {
+				document.getElementById('to_report_normalsong2').value = playnormalsong / 2;
+			} else {
+				document.getElementById('to_report_normalsong2').value = (playnormalsong - 1) / 2 + '(+1)';
+			}
+			document.getElementById('to_report_eventsong').value = playeventsong;
+			if (playeventsong % 2 == 0) {
+				document.getElementById('to_report_eventsong2').value = playeventsong / 2;
+			} else {
+				document.getElementById('to_report_eventsong2').value = (playeventsong - 1) / 2 + '(+1)';
+			}
+			if (playeventsong % 3 == 0) {
+				document.getElementById('to_report_eventsong3').value = playeventsong / 3;
+			} else {
+				document.getElementById('to_report_eventsong3').value = (playeventsong - playeventsong % 3) / 3 + '(+' + playeventsong % 3 + ')';
+			}
+
+			document.getElementById('to_report_oshigoto_o').value = playnormalsong_o;
+			if (playnormalsong_o % 2 == 0) {
+				document.getElementById('to_report_oshigoto2_o').value = playnormalsong_o / 2;
+			} else {
+				document.getElementById('to_report_oshigoto2_o').value = (playnormalsong_o - 1) / 2 + '(+1)';
+			}
+
+			document.getElementById('to_report_eventsong_o').value = playeventsong_o;
+			if (playeventsong_o % 2 == 0) {
+				document.getElementById('to_report_eventsong2_o').value = playeventsong_o / 2;
+			} else {
+				document.getElementById('to_report_eventsong2_o').value = (playeventsong_o - 1) / 2 + '(+1)';
+			}
+			if (playeventsong_o % 3 == 0) {
+				document.getElementById('to_report_eventsong3_o').value = playeventsong_o / 3;
+			} else {
+				document.getElementById('to_report_eventsong3_o').value = (playeventsong_o - playeventsong_o % 3) / 3 + '(+' + playeventsong_o % 3 + ')';
+			}
+
+			setCookie('cookie_to_maxsta', to_maxsta, 180);
+		}
+		// 투어 이벤트 계산 끝
+
+		// 튠 이벤트 계산 시작
+		document.getElementById("tu_calc").onclick = function () {
+			var tu_maxsta = document.getElementById('tu_maxsta').value;
+			var tu_server = document.querySelector('input[name="tu_server"]:checked').value;
+			var tu_diff = document.querySelector('input[name="tu_diff"]:checked').value;
+			var tu_eventnow = document.getElementById('tu_eventnow').value;
+			var tu_eventmat = document.getElementById('tu_eventmat').value;
+			var tu_eventmokpyo = document.getElementById('tu_eventmokpyo').value;
+			var tu_bonus_percent = (document.getElementById('tu_bonus').value);
+			var tu_bonus = 1 + tu_bonus_percent / 100;
+			var norsta, gainmat, usemat, gainpoint, norsta_o, gainmat_o, usemat_o, gainpoint_o;
+
+			//영업런 소비는 10배수 기준으로, 이벤트 곡은 포인트 소모 같아서 하나만 씀
+			if (tu_diff == "MM" && tu_server == "jpn") { //일본서버MM
+				norsta = 30; gainmat = 75; usemat = 140; gainpoint = 490;
+				norsta_o = 300; gainmat_o = 525;
+			}
+			if (tu_diff == "6MIX" && tu_server == "jpn") { //일본서버6mix
+				norsta = 25; gainmat = 64; usemat = 180; gainpoint = 537;
+				norsta_o = 250; gainmat_o = 448;
+			}
+			gainpoint = gainpoint * tu_bonus;
+			gainpoint_o = gainpoint_o * tu_bonus;
+
+			var cons = ((gainpoint * gainmat) / usemat + gainmat) / norsta;
+			var cons_o = ((gainpoint * gainmat_o) / usemat + gainmat_o) / norsta_o;
+			//ㄴ스태1당 얻는 이벤트 포인트를 계산한 효율
+
+
+			var eventnokori = tu_eventmokpyo - tu_eventnow - Math.floor(tu_eventmat / usemat) * gainpoint;
+			//ㄴ앞으로 모아야야 할 이벤트 포인트
+
+			if (eventnokori < 0) {
+				alert('이미 목표를 달성했거나, 보유하고 있는 재화를 모두 소모하면 목표 포인트를 초과 달성 할 수 있습니다.');
+			}
+
+			var sobista = eventnokori / cons;
+			var sobista_o = eventnokori / cons_o;
+			//ㄴ앞으로 소모해야 할 스태미너
+			var playnormalsong = Math.ceil(sobista / norsta);
+			var playnormalsong_o = Math.ceil(sobista_o / norsta_o);
+			//플레이해야할 일반곡
+			var playeventsong = Math.ceil((playnormalsong * gainmat) / usemat) + Math.ceil(tu_eventmat / usemat);
+			var playeventsong_o = Math.ceil((playnormalsong_o * gainmat_o) / usemat) + Math.ceil(tu_eventmat / usemat);
+			//플레이해야할 이벤트곡
+
+			document.getElementById('tu_report_jew').value = Math.ceil(sobista / tu_maxsta) * 50;
+			document.getElementById('tu_report_jew_o').value = Math.ceil(sobista_o / tu_maxsta) * 50;
+			document.getElementById('tu_report_sta').value = Math.ceil(sobista);
+			document.getElementById('tu_report_sta_o').value = Math.ceil(sobista_o);
+
+			var sobista_final = (Math.ceil(sobista)) * 5;
+			var sobista_min = sobista_final % 60;
+			var sobista_hour = ((sobista_final - sobista_min) / 60) % 24;
+			var sobista_day = (sobista_final - sobista_min - sobista_hour * 60) / (24 * 60);
+
+			var sobista_final_o = Math.ceil(sobista_o) * 5;
+			var sobista_min_o = sobista_final_o % 60;
+			var sobista_hour_o = ((sobista_final_o - sobista_min_o) / 60) % 24;
+			var sobista_day_o = (sobista_final_o - sobista_min_o - sobista_hour_o * 60) / (24 * 60);
+
+			document.getElementById('tu_sta_recover').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day + '일 ' + sobista_hour + '시간 ' + sobista_min + '분';
+			document.getElementById('tu_sta_recover_o').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day_o + '일 ' + sobista_hour_o + '시간 ' + sobista_min_o + '분';
+
+
+			document.getElementById('tu_report_normalsong').value = playnormalsong;
+			if (playnormalsong % 2 == 0) {
+				document.getElementById('tu_report_normalsong2').value = playnormalsong / 2;
+			} else {
+				document.getElementById('tu_report_normalsong2').value = (playnormalsong - 1) / 2 + '(+1)';
+			}
+			document.getElementById('tu_report_normalsong_o').value = playnormalsong_o;
+
+			document.getElementById('tu_report_eventsong').value = playeventsong;
+			if (playeventsong % 2 == 0) {
+				document.getElementById('tu_report_eventsong2').value = playeventsong / 2;
+			} else {
+				document.getElementById('tu_report_eventsong2').value = (playeventsong - 1) / 2 + '(+1)';
+			}
+			if (playeventsong % 4 == 0) {
+				document.getElementById('tu_report_eventsong4').value = playeventsong / 4;
+			} else {
+				document.getElementById('tu_report_eventsong4').value = (playeventsong - playeventsong % 4) / 4 + '(+' + playeventsong % 4 + ')';
+			}
+
+			document.getElementById('tu_report_eventsong_o').value = playeventsong_o;
+			if (playeventsong_o % 2 == 0) {
+				document.getElementById('tu_report_eventsong2_o').value = playeventsong_o / 2;
+			} else {
+				document.getElementById('tu_report_eventsong2_o').value = (playeventsong_o - 1) / 2 + '(+1)';
+			}
+			if (playeventsong_o % 4 == 0) {
+				document.getElementById('tu_report_eventsong4_o').value = playeventsong_o / 4;
+			} else {
+				document.getElementById('tu_report_eventsong4_o').value = (playeventsong_o - playeventsong_o % 4) / 4 + '(+' + playeventsong_o % 4 + ')';
+			}
+
+			setCookie('cookie_tu_maxsta', tu_maxsta, 180);
+			setCookie('cookie_tu_bonus', tu_bonus_percent, 180);
+
+		}
+		// 튠 이벤트 계산 끝
+
+
+
+		// 테일 이벤트 계산 시작
+		document.getElementById("ta_calc").onclick = function () {
+			var ta_maxsta = document.getElementById('ta_maxsta').value;
+			//var ta_server = document.querySelector('input[name="ta_server"]:checked').value;
+			// var ta_diff = document.querySelector('input[name="ta_diff"]:checked').value;
+			var ta_diff = "MM";
+			var ta_server = "jpn";
+			//나중에 난이도 계산해서 추가해둘것
+			var ta_eventnow = document.getElementById('ta_eventnow').value;
+			var ta_eventmokpyo = document.getElementById('ta_eventmokpyo').value;
+			var norsta, gainmat, usemat, gainpoint, norsta_o, gainmat_o, usemat_o, gainpoint_o, elegant_pt, gainpt, gainpt_o, elegant_sta;
+
+			if (ta_diff == "MM" && ta_server == "jpn") { //일본서버MM
+				norsta_o = 300; gainmat_o = 525;
+				norsta = 30; gainmat = 50; gainpt = 200; usemat = 300; elegant_pt = 3000;
+				norsta_o = 30; gainmat = 50; gainpt_o = 82;
+				elegant_sta = 20;
+			}
+
+			var eventnokori = ta_eventmokpyo - ta_eventnow;
+			//ㄴ앞으로 모아야야 할 이벤트 포인트
+
+			if (eventnokori < 0) {
+				alert('이미 목표를 달성했습니다');
+			}
+
+			var cons = gainpt * 6 + elegant_pt;
+			var cons_o = gainpt_o * 6 + elegant_pt;
+			//엘레강트 라이브 한 번에 얻는 포인트양
+
+			var eventnokori_count = Math.ceil(eventnokori / cons);
+			var eventnokori_count_o = Math.ceil(eventnokori / cons_o);
+			//엘레강트 라이브 몇 번 해야하는지 계산
+
+			var sobista = eventnokori_count * (norsta * 6 + elegant_sta);
+			var sobista_o = eventnokori_count_o * (norsta_o * 6 + elegant_sta);
+			//ㄴ앞으로 소모해야 할 스태미너
+			var playnormalsong = eventnokori_count * 6;
+			var playnormalsong_o = eventnokori_count_o * 6;
+			//플레이해야할 일반곡
+			var playeventsong = eventnokori_count;
+			var playeventsong_o = eventnokori_count_o;
+			//플레이해야할 이벤트곡
+
+			document.getElementById('ta_report_jew').value = Math.ceil(sobista / ta_maxsta) * 50;
+			document.getElementById('ta_report_jew_o').value = Math.ceil(sobista_o / ta_maxsta) * 50;
+			document.getElementById('ta_report_sta').value = Math.ceil(sobista);
+			document.getElementById('ta_report_sta_o').value = Math.ceil(sobista_o);
+
+			var sobista_final = (Math.ceil(sobista)) * 5;
+			var sobista_min = sobista_final % 60;
+			var sobista_hour = ((sobista_final - sobista_min) / 60) % 24;
+			var sobista_day = (sobista_final - sobista_min - sobista_hour * 60) / (24 * 60);
+
+			var sobista_final_o = Math.ceil(sobista_o) * 5;
+			var sobista_min_o = sobista_final_o % 60;
+			var sobista_hour_o = ((sobista_final_o - sobista_min_o) / 60) % 24;
+			var sobista_day_o = (sobista_final_o - sobista_min_o - sobista_hour_o * 60) / (24 * 60);
+
+			document.getElementById('ta_sta_recover').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day + '일 ' + sobista_hour + '시간 ' + sobista_min + '분';
+			document.getElementById('ta_sta_recover_o').innerHTML = '스태미너 회복까지 걸리는 시간 : ' + sobista_day_o + '일 ' + sobista_hour_o + '시간 ' + sobista_min_o + '분';
+
+
+			document.getElementById('ta_report_normalsong').value = playnormalsong;
+			if (playnormalsong % 2 == 0) {
+				document.getElementById('ta_report_normalsong2').value = playnormalsong / 2;
+			} else {
+				document.getElementById('ta_report_normalsong2').value = (playnormalsong - 1) / 2 + '(+1)';
+			}
+			document.getElementById('ta_report_normalsong_o').value = playnormalsong_o;
+			if (playnormalsong_o % 2 == 0) {
+				document.getElementById('ta_report_normalsong2_o').value = playnormalsong_o / 2;
+			} else {
+				document.getElementById('ta_report_normalsong2_o').value = (playnormalsong_o - 1) / 2 + '(+1)';
+			}
+
+			document.getElementById('ta_report_eventsong').value = playeventsong;
+
+
+			document.getElementById('ta_report_eventsong_o').value = playeventsong_o;
+
+			setCookie('cookie_ta_maxsta', ta_maxsta, 180);
+
+		}
+		// 테일 이벤트 계산 끝
+
+
+
+
+		//document.getElementById("training1st_calc").onclick = function(){
+		//	var roco1st_1 = document.getElementById("roco1st_1").checked;
+		//	setCookie('co_roco1st_1', roco1st_1, 360);
+		//}
+
+		document.getElementById('th_maxsta').value = getCookie('cookie_th_maxsta');
+		document.getElementById('to_maxsta').value = getCookie('cookie_to_maxsta');
+		document.getElementById('tu_maxsta').value = getCookie('cookie_tu_maxsta');
+		document.getElementById('tu_bonus').value = getCookie('cookie_tu_bonus');
+		document.getElementById('ta_maxsta').value = getCookie('cookie_ta_maxsta');
+
+			//저장된 쿠키 불러오는 것
+	</script>
+</body>
+
+</html>

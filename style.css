@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900&display=swap');
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+html, body {
+      position: relative;
+      height: 100%;
+    }
+html,body{margin:0;padding:0;text-align:center; font-size:10pt; font-family:'NEXON Lv1 Gothic OTF';color:black;}
+body{background: aliceblue;color:#333}
+table{height:inherit;width:100%;}
+input{width:100px;height:20px;font-size:8pt;text-align:center;}
+select{width:90px;height:24px;text-align:center;}
+select .op{text-align-last:center;}
+option { text-align:center; }
+button{background:none;border:none}
+rt{font-size:8pt;text-align:right;}
+ruby{padding-top:1px;}
+a {text-decoration:none;}
+
+:root{
+  --theater-color: palevioletred;
+  --theater-color-sub: snow;
+  --tour-color: mediumseagreen;
+  --tour-color-sub: honeydew;
+  --tune-color: dodgerblue;
+  --tune-color-sub: aliceblue;
+  --tale-color: peru;
+  --tale-color-sub: papayawhip;
+  --training-color: darkorchid;
+  --title-color: var(--theater-color);
+}
+
+.warning{font-size:15pt;color:red}
+.warningsmall{font-size:8pt;color:red}
+
+#th_report_normalsong2, #th_report_eventsong2, #th_report_eventsong4, #th_report_eventsong2_o, #th_report_eventsong4_o{display:none}
+
+#to_report_normalsong2, #to_report_eventsong2, #to_report_eventsong3, #to_report_eventsong2_o, #to_report_eventsong3_o, #to_report_oshigoto2_o{display:none}
+
+#tu_report_normalsong2, #tu_report_eventsong2, #tu_report_eventsong4, #tu_report_eventsong2_o, #tu_report_eventsong4_o{display:none}
+
+#ta_report_normalsong2_o, #ta_report_normalsong2{display:none}
+
+.gong100{box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);color:transparent}
+.blank{opacity:0;}
+.yoso{margin-bottom:25px;}
+.yoso-title{font-size:13pt;margin:0;font-weight:700;}
+.yoso-smallmargin{margin-bottom:2px}
+.yoso2{display:inline-block;margin:0 10px;width:calc(100%/2 - 40px);max-width:180px;}
+.yoso2-button{display:inline-flex;margin:2px 3px;}
+.result .yoso2-button{display:flex;position:absolute}
+.yoso span{display:flex;}
+.input_main{text-align:center;display:inline-block;width:100%}
+.label{margin:0}
+.yoso2-button input[type=radio]{display: none;}
+.yoso2-button input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 28px;
+  width: 75px;
+  border: 1px solid var(--theater-color);
+  line-height: 28px;
+  text-align: center;
+  font-weight:bold;
+  font-size:15px;
+}
+#input_theater .yoso2-button input[type=radio]+label{border-color:var(--theater-color)}
+#input_tour .yoso2-button input[type=radio]+label{border-color:var(--tour-color)}
+#input_tune .yoso2-button input[type=radio]+label{border-color:var(--tune-color)}
+#input_tale .yoso2-button input[type=radio]+label{border-color:var(--tale-color)}
+.yoso2-button input[type=radio]+label{color: #333;}
+#input_theater .yoso2-button input[type=radio]:checked+label{
+  background-color: var(--theater-color);
+  color: #fff;
+}
+#input_tour .yoso2-button input[type=radio]:checked+label{
+  background-color: var(--tour-color);
+  color: #fff;
+}
+#input_tune .yoso2-button input[type=radio]:checked+label{
+  background-color: var(--tune-color);
+  color: #fff;
+}
+#input_tale .yoso2-button input[type=radio]:checked+label{
+  background-color: var(--tale-color);
+  color: #fff;
+}
+.result .yoso2-button input[type=radio]+label{
+    width:23px;font-size:9pt;height:29px;border:0px;background:transparent
+}
+.inputstyle{
+  display:inline-block;
+  width:100%;
+  max-width:180px;
+  height:28px;line-height:28px;
+  font-size:15px;
+  font-family:'Noto Sans KR';
+  font-weight:700;
+  text-align:right;
+  border:3px solid black;
+  border-top:none;border-left:none;border-right:none;
+}
+#input_theater .result .inputstyle{color:var(--theater-color);}
+#input_tour .result .inputstyle{color:var(--tour-color);}
+#input_tune .result .inputstyle{color:var(--tune-color);}
+#input_tale .result .inputstyle{color:var(--tale-color);}
+
+.input_training1st, .input_tour, #output_tour, .input_tune, #output_tune, .input_tale, #output_tale{display:none;}/*처음에 안보여야 할 애들*/
+
+.container{background:white;width:100%;height:auto;}
+
+.slingname{position:fixed;z-index:-1;bottom:0;right:0;display:none;}
+.slingname img{width:100px}
+.bottomslingname{width:100px}
+
+.part_header, .part_input, .part_output, .part_footer{position:relative;box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);}
+
+.part_header{height:100%;background-image:url('./images/roco5th.png');background-size:100%;background-position-x:25%;}
+.part_header:before{content:"";display:table;padding-top: 50%;text-align:center;}
+.header_title{color:white;position:absolute;top:60%;height:37px;line-height: 37px;width:100%;font-weight:900;font-size:18pt;background:rgba(0,0,0,0.7); box-shadow: 0 2px 2px #333;box-shadow:none;}
+.header_black{background-color:rgba(0,0,0,0);width:100%;height:100%;position:absolute;top:0;}
+.header_name{color:white;font-size:6pt;letter-spacing:-0.5px;text-align:right;position:absolute;top:0;right:0;}
+.header_name span{background:rgba(0,0,0,0.7);padding:0 2px 0 2px;}
+.header_name span a{text-decoration:none;color:inherit;}
+.header_underbar{color:rgba(0,0,0,0);width:40px; border-bottom:3px solid white;text-shadow:none;}
+
+.part_type{height:50px;display:flex;position:fixed;bottom:0;width:100%;z-index:300;font-weight:700;}
+.part_type td{color:white;}
+.type_theater, .type_tour, .type_training1st, .type_tune, .type_tale{width:25%;height:100%;}/*이벤트 개수 하나당 width 조절할것*/
+.part_type table{width:100%;}
+
+#part_input{margin-top:0px;}
+.part_input{z-index:20}
+.tale_table_title, .theater_table_title, .tour_table_title, .anniv_table_title, .tune_table_title{font-size:13pt;font-weight:700;padding-bottom:25px;}
+.left, .right{padding:2px;width:50%}
+.left{text-align:right;line-height:1;}
+.right{text-align:left;}
+.flexright{display:flex;}
+.question{width:20px;height:20px;border-radius:20px;border:1px solid #444;text-align:center;margin-left:5px;}
+.answers img{width:100%;}
+.answers{width:100%;height:100%;background:rgba(0,0,0,0.8);position:fixed;top:0;left:0;z-index:2000000;display:none;text-align:center;padding-top:1%;}
+/* .input_tale select, .input_tale input, .input_anniv select, .input_anniv input, .input_tour select, .input_tour input, .input_theater select, .input_theater input, .input_tune select, .input_tune input{border:1px solid black;} */
+.calc{height:60px;width:90%;max-width:350px;font-size:17px;font-weight:900;color:white;line-height:60px;display:inline-block;border-radius:10px;}
+
+
+.part_output{display:flex;z-index:10;}
+#output_theater, #output_tour, #output_anniv, #output_tune, #output_tale{width:100%}
+.output_tale, .output_tour, .output_theater, .output_anniv, .output_tune{width:100%;display:block}
+.output_report{width:100%;}
+.output_tale select, .output_tale input, .output_anniv select, .output_anniv input, .output_tour select, .output_tour input, .output_theater select, .output_theater input, .output_tune select, .output_tune input{border:1px solid black;}
+.report_bottom{border-top:1px solid lightblue}
+.report_top{font-size:13pt;margin-top:5px;font-weight:700;}
+.sta_recover{font-size:9pt;text-align:center}
+.leftspecial{margin-top:2px;color:rgba(0,0,0,0);}
+.songs{width:52px;}
+.twittershare{text-decoration:none; font-size:12pt}
+.twittershare div{display:inline}
+.twittershare img{width:70px}
+.twittershare button{padding:0;border-radius: 35px;}
+
+.part_footer{margin-bottom:50px;font-size:9pt}
+.part_footer a{text-decoration: underline dotted;}
+
+.caution{font-weight:700;font-size:12pt}
+
+
+/*트레이닝 관련 CSS*/
+.type_training1st{padding:0px}
+input[type="checkbox"]{display:none;background:#eee;}
+input[type="checkbox"] + label{
+	display:inline-block;
+	width:15px;height:15px;
+	border-radius:6px;
+	background:#efefef;
+	border:6px solid #efefef;
+}
+.training_table_title{font-size:13pt;font-weight:700;}
+.trainingleft{display:flex;width:60px;}
+.trainingname .noborder{border-bottom:none;}
+.training td{width:30px;line-height:9pt;font-size:9pt;letter-spacing:-1px;}
+.fairytraining td, .allstartraining td, .princesstraining td, .angeltraining td{font-size:9pt;font-weight:700;}
+.fairytraining input[type="checkbox"]:checked + label{border:6px solid dodgerblue;}
+.fairytraining td, .fairytd{color:dodgerblue;}
+.fairytd td{border-bottom:	2px solid dodgerblue}
+.allstartraining input[type="checkbox"]:checked + label{border:6px solid mediumorchid;}
+.allstartraining td, .allstartd{color:mediumorchid;}
+.allstartd td{border-bottom:	2px solid mediumorchid}
+.angeltraining input[type="checkbox"]:checked + label{border:6px solid goldenrod;}
+.angeltraining td, .angeltd{color:goldenrod;}
+.angeltd td{border-bottom:	2px solid goldenrod}
+.princesstraining input[type="checkbox"]:checked + label{border:6px solid PaleVioletred;}
+.princesstraining td, .princesstd{color:PaleVioletred;}
+.princesstd td{border-bottom:	2px solid PaleVioletred}
+.tip{color:#777;margin-bottom:30px;line-height:20px}
+
+
+/*이미지컬러세팅*/
+.type_theater, #th_calc, #input_theater .twittershare button{background:var(--theater-color);}
+.type_tour, #to_calc, #input_tour .twittershare button{background:var(--tour-color);}
+.type_training1st, #training1st_calc,#training1st_calc2, #training1st_button, .twittershare button{background:var(--training-color);}
+.type_tune, #tu_calc, #input_tune .twittershare button{background:var(--tune-color);}
+.type_tale, #ta_calc, #input_tale .twittershare button{background:var(--tale-color);}
+#title_name{background:var(--title-color);}
+
+.theater_table_title, .output_theater .report_top{color:var(--theater-color)}
+.tour_table_title, .output_tour .report_top{color:var(--tour-color)}
+.anniv_table_title, .output_anniv .report_top{color:dodgerblue}
+.training_table_title{color:var(--training-color)}
+.tale_table_title, .output_tale .report_top{color:var(--tale-color)}
+.tune_table_title, .output_tune .report_top{color:var(--tune-color)}
+
+.input_theater input, .input_theater select, .output_theater input, .output_theater select{border-color:var(--theater-color);}
+.input_tour input, .input_tour select, .output_tour input, .output_tour select{border-color:var(--tour-color);}
+.input_anniv input, .input_anniv select, .output_anniv input, .output_anniv select{border-color:steelblue;}
+.input_tune input, .input_tune select, .output_tune input, .output_tune select{border-color:var(--tune-color);}
+.input_tale input, .input_tale select, .output_tale input, .output_tale select{border-color:var(--tale-color);}
+
+.input_theater select, .input_theater input, .output_theater select, .output_theater input{background:var(--theater-color-sub)}
+.input_tour select, .input_tour input, .output_tour select, .output_tour input{background:var(--tour-color-sub)}
+.input_anniv select, .input_anniv input, .output_anniv select, .output_anniv input{background:aliceblue}
+.input_tune select, .input_tune input, .output_tune select, .output_tune input{background:var(--tune-color-sub)}
+.input_tale select, .input_tale input, .output_tale select, .output_tale input{background:var(--tale-color-sub)}
+
+ruby, .sta_recover, .part_footer, .part_footer a, .tw_manual{color:#999}
+/*이미지컬러세팅끝*/
+
+
+@media
+	only screen and (min-width:738px){
+    .slingname{display:block}
+    .bottomslingname{display:none}
+    .container{width:732px;display: inline-block;}
+    .header_title{font-size:25pt;height:50px;line-height:50px;}
+    .header_name{font-size:10pt;}
+    .header_second{top:19px;}
+    .answers img{width:700px;}
+    .part_type{width:732px;}
+    .output_tour, .output_theater, .output_anniv, .output_tune, .output_tale{display:flex;}
+    .output_report{display:inline;}
+    input{font-size:9pt;}
+    .training td{width:30px;line-height:11pt;font-size:10pt;letter-spacing:0px;}
+    .fairytraining td, .allstartraining td, .princesstraining td, .angeltraining td{font-size:11pt}
+    .widehide{display:none}
+    .songs{width:40px}
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
