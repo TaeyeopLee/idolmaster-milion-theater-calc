@@ -24,11 +24,11 @@ export const CalcType = {
 
 export type TState = {
   region: string; // 지역
-  calcType: string; // 계산타입 MM || 6MIX
+  calcType?: string; // 계산타입 MM || 6MIX
   eventPointGoal: number; // 목표 이벤트 포인트
   currentPoint: number; // 현재 이벤트 포인트
   maxStamina: number; // 최대 스태미너
-  currentMat: number; // 현재 소지 재화
+  currentMat?: number; // 현재 소지 재화
   deckBonus?: number; // 덱 보너스
   eventSongMultiplier?: string; // 이벤트 곡 배수
   liverun: {
@@ -50,7 +50,7 @@ export type TState = {
     jewel_o?: number; // 영업런 소모 주얼
     stamina_o?: number; // 영업런 소모 스태미너
     recover_stamina_o?: string; // 영업런 스태미너 회복 예정 시간
-    ellegant_stage_cnt?: string; // 엘레강트 스테이지 횟수
+    ellegant_stage_o_cnt?: string; // 엘레강트 스테이지 횟수
   };
 }
 
@@ -76,35 +76,6 @@ class Home extends React.Component<{}, TState> {
             </div>
           </div>
           <Router props={{page: 'theater'}} />
-          {/* <BrowserRouter>
-            <div className="part_type">
-              <table>
-                <tbody>
-                <tr style={{textAlign: 'center'}}>
-                  <td className="type_theater" id="theater_button">
-                    <Link to='/theater'>시어터</Link>
-                  </td>
-                  <td className="type_tour" id="tour_button">
-                    <Link to='/tour'>투어</Link>
-                  </td>
-                  <td className="type_tune" id="tune_button">
-                    <Link to='/tune'>튠</Link>
-                  </td>
-                  <td className="type_tale" id="tale_button">
-                    <Link to='tale'>테일</Link>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="part_input" id="part_input">
-              <Switch>
-                <Route exact path='/theater' component={Theater} />
-                <Route path='/tour' component={Tour} />
-              </Switch>
-            </div>
-            </BrowserRouter> */}
           <Footer />
         </div>
       </React.Fragment>

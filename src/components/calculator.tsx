@@ -9,7 +9,7 @@ export function theaterCalculate(theme: TState) {
   const th_server = result.region;
   const th_diff = result.calcType;
   const th_eventnow = result.currentPoint;
-  const th_eventmat = result.currentMat;
+  const th_eventmat = result.currentMat !== undefined ? result.currentMat : 0;
   const th_eventmokpyo = result.eventPointGoal;
   let norsta = 0, gainmat = 0, usemat = 0, gainpoint = 0, norsta_o = 0, gainmat_o = 0;
 
@@ -131,9 +131,9 @@ export function tourCalculate(theme: TState) {
   const to_server = result.region;
   const to_diff = result.calcType;
   const to_eventnow = result.currentPoint;
-  let to_eventmat = result.currentMat;
   const to_eventmokpyo = result.eventPointGoal;
   const to_multiStr = result.eventSongMultiplier;
+  let to_eventmat = result.currentMat !== undefined ? result.currentMat : 0;
   let to_multi = 0;
   let norsta = 0, gainmat = 0, gainnormalpoint = 0, usemat = 0, gainpoint = 0, norsta_o = 0, gainmat_o = 0, gainnormalpoint_o = 0;
 
@@ -265,7 +265,7 @@ export function tuneCalculate(theme: TState) {
   const tu_server = result.region;
   const tu_diff = result.calcType;
   const tu_eventnow = result.currentPoint;
-  const tu_eventmat = result.currentMat;
+  const tu_eventmat = result.currentMat !== undefined ? result.currentMat : 0;
   const tu_eventmokpyo = result.eventPointGoal;
   const tu_bonus_percent = result.deckBonus !== undefined ? result.deckBonus : 0;
   var tu_bonus = 1 + tu_bonus_percent / 100;
@@ -366,7 +366,7 @@ export function tuneCalculate(theme: TState) {
       result.salesrun.eventSong_o_Cnt = (playeventsong_o - playeventsong_o % 4) / 4 + '(+' + playeventsong_o % 4 + ')';
     }
   }
-  
+
   // setCookie('cookie_tu_maxsta', tu_maxsta, 180);
   // setCookie('cookie_tu_bonus', tu_bonus_percent, 180);
 
@@ -374,3 +374,102 @@ export function tuneCalculate(theme: TState) {
 
 }
 // 튠 이벤트 계산 끝
+
+export function taleCalculate(theme: TState) {
+  console.log("taleCalculate theme: ", JSON.stringify(theme));
+  let result = theme;
+  var ta_maxsta = result.maxStamina;
+  //var ta_server = document.querySelector('input[name="ta_server"]:checked').value;
+  // var ta_diff = document.querySelector('input[name="ta_diff"]:checked').value;
+  var ta_diff = "MM";
+  var ta_server = "jpn";
+  //나중에 난이도 계산해서 추가해둘것
+  var ta_eventnow = result.currentPoint
+  var ta_eventmokpyo = result.eventPointGoal;
+  var norsta = 0, gainmat = 0, usemat = 0, gainpoint, norsta_o = 0, gainmat_o = 0, usemat_o, gainpoint_o, elegant_pt = 0, gainpt = 0, gainpt_o = 0, elegant_sta = 0;
+
+  if (ta_diff == "MM" && ta_server == "jpn") { //일본서버MM
+    norsta_o = 300; gainmat_o = 525;
+    norsta = 30; gainmat = 50; gainpt = 200; usemat = 300; elegant_pt = 3000;
+    norsta_o = 30; gainmat = 50; gainpt_o = 82;
+    elegant_sta = 20;
+  }
+
+  var eventnokori = ta_eventmokpyo - ta_eventnow;
+  //ㄴ앞으로 모아야야 할 이벤트 포인트
+
+  if (eventnokori < 0) {
+    alert('이미 목표를 달성했습니다');
+  }
+
+  var cons = gainpt * 6 + elegant_pt;
+  var cons_o = gainpt_o * 6 + elegant_pt;
+  //엘레강트 라이브 한 번에 얻는 포인트양
+
+  var eventnokori_count = Math.ceil(eventnokori / cons);
+  var eventnokori_count_o = Math.ceil(eventnokori / cons_o);
+  //엘레강트 라이브 몇 번 해야하는지 계산
+
+  var sobista = eventnokori_count * (norsta * 6 + elegant_sta);
+  var sobista_o = eventnokori_count_o * (norsta_o * 6 + elegant_sta);
+  //ㄴ앞으로 소모해야 할 스태미너
+  var playnormalsong = eventnokori_count * 6;
+  var playnormalsong_o = eventnokori_count_o * 6;
+  //플레이해야할 일반곡
+  var playeventsong = eventnokori_count;
+  var playeventsong_o = eventnokori_count_o;
+  //플레이해야할 이벤트곡
+
+  result.liverun.jewel = Math.ceil(sobista / ta_maxsta) * 50;
+  result.salesrun.jewel_o = Math.ceil(sobista_o / ta_maxsta) * 50;
+  result.liverun.stamina = Math.ceil(sobista);
+  result.salesrun.stamina_o = Math.ceil(sobista_o);
+
+  var sobista_final = (Math.ceil(sobista)) * 5;
+  var sobista_min = sobista_final % 60;
+  var sobista_hour = ((sobista_final - sobista_min) / 60) % 24;
+  var sobista_day = (sobista_final - sobista_min - sobista_hour * 60) / (24 * 60);
+
+  var sobista_final_o = Math.ceil(sobista_o) * 5;
+  var sobista_min_o = sobista_final_o % 60;
+  var sobista_hour_o = ((sobista_final_o - sobista_min_o) / 60) % 24;
+  var sobista_day_o = (sobista_final_o - sobista_min_o - sobista_hour_o * 60) / (24 * 60);
+
+  result.liverun.recover_stamina = '스태미너 회복까지 걸리는 시간 : ' + sobista_day + '일 ' + sobista_hour + '시간 ' + sobista_min + '분';
+  result.salesrun.recover_stamina_o = '스태미너 회복까지 걸리는 시간 : ' + sobista_day_o + '일 ' + sobista_hour_o + '시간 ' + sobista_min_o + '분';
+
+  result.liverun.normalSongCnt = playnormalsong.toString();
+  // document.getElementById('ta_report_normalsong').value = playnormalsong;
+  if (result.liverun.normalSong_Multiplier === MULTIPLIER.x2) {
+    if (playnormalsong % 2 == 0) {
+      result.liverun.normalSongCnt = (playnormalsong / 2).toString();
+      // document.getElementById('ta_report_normalsong2').value = playnormalsong / 2;
+    } else {
+      result.liverun.normalSongCnt = (playnormalsong - 1) / 2 + '(+1)';
+      // document.getElementById('ta_report_normalsong2').value = (playnormalsong - 1) / 2 + '(+1)';
+    }
+  }
+
+  result.salesrun.sales_Cnt = playnormalsong_o.toString();
+  // document.getElementById('ta_report_normalsong_o').value = playnormalsong_o;
+  if (result.salesrun.sales_Multiplier === MULTIPLIER.x2) {
+    if (playnormalsong_o % 2 == 0) {
+      result.salesrun.sales_Cnt = (playnormalsong_o / 2).toString();
+      // document.getElementById('ta_report_normalsong2_o').value = playnormalsong_o / 2;
+    } else {
+      result.salesrun.sales_Cnt = (playnormalsong_o - 1) / 2 + '(+1)';
+      // document.getElementById('ta_report_normalsong2_o').value = (playnormalsong_o - 1) / 2 + '(+1)';
+    }
+  }
+
+  result.liverun.ellegant_stage_cnt = playeventsong.toString();
+  // document.getElementById('ta_report_eventsong').value = playeventsong;
+
+  result.salesrun.ellegant_stage_o_cnt = playeventsong_o.toString();
+  // document.getElementById('ta_report_eventsong_o').value = playeventsong_o;
+
+  // setCookie('cookie_ta_maxsta', ta_maxsta, 180);
+
+
+  return result;
+}
