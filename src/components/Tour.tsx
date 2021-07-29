@@ -35,7 +35,7 @@ class Tour extends React.Component<any, TState> {
   }
 
   twittertour = () => {
-    console.log("twitter");
+    console.log("twittertour");
   };
 
   onClickCalcBtn = () => {

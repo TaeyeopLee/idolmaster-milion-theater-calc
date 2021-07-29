@@ -179,7 +179,6 @@ class Theater extends React.Component<any, TState> {
               <label htmlFor="th_selectsong_x2" >x2</label>
             </div>
             <input className="inputstyle result_song" readOnly type="text" id="th_report_normalsong" value={this.state.liverun.normalSongCnt} />
-            <input className="inputstyle result_song" readOnly type="text" id="th_report_normalsong2" value={this.state.liverun.normalSongCnt} />
           </div>
           <div className="yoso2">
             <span>티켓 10배수 횟수</span>

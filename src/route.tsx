@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BrowserRouter, Route, Switch, Link, withRouter} from 'react-router-dom';
 import Theater from './components/Theater';
 import Tour from './components/Tour';
+import Tune from './components/Tune';
 class Router extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -45,6 +46,7 @@ class Router extends React.Component<any, any> {
           <Switch>
             <Route exact path='/theater' render={(props) => <Theater {...props} />} />
             <Route path='/tour' render={(props) => <Tour {...props} />} />
+            <Route path='/tune' render={(props) => <Tune {...props }/>} />
           </Switch>
         </div>
       </BrowserRouter>
