@@ -123,7 +123,7 @@ class Tale extends React.Component<any, TState> {
           <div className="yoso2">
           </div>
         </div>
-        <div className="yoso calc" id="ta_calc">계산</div>
+        <div className="yoso calc" id="ta_calc" onClick={this.onClickCalcBtn}>계산</div>
         <div className="yoso gong100">로코 귀여운</div>
         <div className="yoso result">
           <div className="yoso2">
@@ -168,7 +168,7 @@ class Tale extends React.Component<any, TState> {
                 x2
               </label>
             </div>
-            <input className="inputstyle result_song" readOnly type="text" id="ta_report_normalsong_o" value={this.state.salesrun.normalSong_o_Cnt} />
+            <input className="inputstyle result_song" readOnly type="text" id="ta_report_normalsong_o" value={this.state.salesrun.sales_Cnt} />
           </div>
         </div>
         <div className="yoso result">
