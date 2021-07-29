@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { calculate } from './calculator';
+import { theaterCalculate } from './calculator';
 import { TState, REGION, CalcType, MULTIPLIER } from '../index';
 
-class Theater extends React.Component<{}, TState> {
+class Theater extends React.Component<any, TState> {
   constructor(props: any) {
     super(props);
     this.state = {
       region: REGION.JPN,
       calcType: CalcType.MM,
-      eventPointGoal: 1000000,
+      eventPointGoal: 300000,
       currentPoint: 0,
       maxStamina: 0,
       currentMat: 0,
@@ -37,7 +37,7 @@ class Theater extends React.Component<{}, TState> {
   }
 
   onClickCalcBtn = () => {
-    let theme: TState = calculate(this.state);
+    let theme: TState = theaterCalculate(this.state);
     this.setState({
       ...this.state,
       ...theme
@@ -121,6 +121,7 @@ class Theater extends React.Component<{}, TState> {
   }
 
   render() {
+    console.log("Theater render");
     return (
       <div className="input_theater input_main" id="input_theater">
         <br />

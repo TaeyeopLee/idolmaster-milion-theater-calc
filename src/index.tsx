@@ -1,12 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Footer from './components/Footer';
 import Router from './route';
-import Theater from './components/Theater';
-import Tour from './components/Tour';
-import { calculate } from './components/calculator';
-import Menu from './Menu';
 
 export const MULTIPLIER = {
   x1: 'x1',
@@ -44,10 +39,10 @@ export type TState = {
     jewel?: number; // 라이브런 소모 주얼
     stamina?: number; // 라이브런 소모 스태미너
     recover_stamina?: string; // 라이브런 스태미너 회복 예정 시간
-    ellegant_stage_cnt?: number; // 엘레강트 스테이지 횟수
+    ellegant_stage_cnt?: string; // 엘레강트 스테이지 횟수
   };
   salesrun: {
-    sales_Cnt?: number; // 영업 횟수
+    sales_Cnt?: string; // 영업 횟수
     sales_Multiplier?: string; // 영업 배수 x1 || x2 
     normalSong_o_Cnt?: string;// 영업런 티켓 10배수 횟수
     eventSong_o_Multiplier?: string; // 영업런 이벤트곡 횟수 1x || 2x || 4x
@@ -55,7 +50,7 @@ export type TState = {
     jewel_o?: number; // 영업런 소모 주얼
     stamina_o?: number; // 영업런 소모 스태미너
     recover_stamina_o?: string; // 영업런 스태미너 회복 예정 시간
-    ellegant_stage_cnt?: number; // 엘레강트 스테이지 횟수
+    ellegant_stage_cnt?: string; // 엘레강트 스테이지 횟수
   };
 }
 
@@ -80,7 +75,7 @@ class Home extends React.Component<{}, TState> {
               </div>
             </div>
           </div>
-          <Router />
+          <Router props={{page: 'theater'}} />
           {/* <BrowserRouter>
             <div className="part_type">
               <table>
