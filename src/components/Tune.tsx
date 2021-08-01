@@ -129,6 +129,8 @@ class Tune extends React.Component<any, TState> {
   }
 
   render() {
+    console.log("Tune render");
+    console.log("Tune props : ", this.props);
     return (
       <div className="input_tune input_main" id="input_tune">
         <br />

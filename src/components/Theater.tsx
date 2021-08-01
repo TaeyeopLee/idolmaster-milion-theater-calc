@@ -122,6 +122,7 @@ class Theater extends React.Component<any, TState> {
 
   render() {
     console.log("Theater render");
+    console.log("theater props : ", this.props);
     return (
       <div className="input_theater input_main" id="input_theater">
         <br />

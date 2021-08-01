@@ -143,6 +143,7 @@ class Tour extends React.Component<any, TState> {
 
   render() {
     console.log("Tour render");
+    console.log("Tour props : ", this.props);
     return (
       <div className="input_tour input_main" id="input_tour">
         <br />

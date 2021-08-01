@@ -310,7 +310,7 @@ a {
 }
 
 .part_header {
-  height: 100%;
+  /* height: 100%; */
   background-image: url('./images/roco5th.png');
   background-size: 100%;
   background-position-x: 25%;
@@ -382,7 +382,7 @@ a {
   font-weight: 700;
 }
 
-.part_type td {
+.part_type td a {
   color: white;
 }
 

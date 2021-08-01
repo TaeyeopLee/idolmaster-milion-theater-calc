@@ -94,6 +94,8 @@ class Tale extends React.Component<any, TState> {
   }
 
   render() {
+    console.log("Tale render");
+    console.log("Tale props : ", this.props);
     return (
       <div className="input_tale input_main" id="input_tale">
         <br />

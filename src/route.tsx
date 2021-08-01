@@ -23,24 +23,50 @@ class Router extends React.Component<any, any> {
     return (
       <BrowserRouter>
         <div className="part_type">
-          <table>
-            <tbody>
-            <tr style={{textAlign: 'center'}}>
-              <td className="type_theater" id="theater_button">
-                <Link to='/theater' onClick={this.setCurrentPage.bind(this, 'theater')}>시어터</Link>
-              </td>
-              <td className="type_tour" id="tour_button">
-                <Link to='/tour' onClick={this.setCurrentPage.bind(this, 'tour')}>투어</Link>
-              </td>
-              <td className="type_tune" id="tune_button">
-                <Link to='/tune' onClick={this.setCurrentPage.bind(this, 'tune')}>튠</Link>
-              </td>
-              <td className="type_tale" id="tale_button">
-                <Link to='tale' onClick={this.setCurrentPage.bind(this, 'tale')}>테일</Link>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+          <div className='type_theater'>
+            <table>
+              <tbody>
+                <tr style={{textAlign: 'center'}}>
+                  <td className="type_theater" id="theater_button">
+                    <Link to='/theater' onClick={this.setCurrentPage.bind(this, 'theater')}>시어터</Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className='type_tour'>
+            <table>
+              <tbody>
+                <tr style={{textAlign: 'center'}}>
+                  <td className="type_tour" id="tour_button">
+                    <Link to='/tour' onClick={this.setCurrentPage.bind(this, 'tour')}>투어</Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className='type_tune'>
+            <table>
+              <tbody>
+                <tr style={{textAlign: 'center'}}>
+                  <td className="type_tune" id="tune_button">
+                    <Link to='/tune' onClick={this.setCurrentPage.bind(this, 'tune')}>튠</Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className='type_tale'>
+            <table>
+              <tbody>
+                <tr style={{textAlign: 'center'}}>
+                  <td className="type_tale" id="tale_button">
+                    <Link to='/tale' onClick={this.setCurrentPage.bind(this, 'tale')}>테일</Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div className="part_input" id="part_input">
