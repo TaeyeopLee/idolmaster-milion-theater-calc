@@ -36,6 +36,24 @@ class Tour extends React.Component<any, TState> {
 
   twittertour = () => {
     console.log("twittertour");
+    window.open('https://twitter.com/intent/tweet?text=투어 이벤트 목표 ' +
+    this.state.eventPointGoal +
+      'pt까지%0A%0A' +
+      '라이브런 : 일반곡 ' +
+      this.state.liverun.normalSongCnt +
+      '회, 이벤트곡 ' +
+      this.state.liverun.eventSongCnt +
+      '회, 주얼 ' +
+      this.state.liverun.jewel +
+      '개 소모 예상%0A' +
+      '영업런 : 영업 ' +
+      this.state.salesrun.sales_Cnt +
+      '회, 이벤트곡 ' +
+      this.state.salesrun.eventSong_o_Cnt +
+      '회, 주얼 ' +
+      this.state.salesrun.jewel_o +
+      '개 소모 예상%0A%0A%23밀리시타_계산기 https%3A%2F%2Fmilli-calc.tistory.com%2F'
+      , '_blank', "height=400,width=600"); 
   };
 
   onClickCalcBtn = () => {

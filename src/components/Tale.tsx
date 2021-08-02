@@ -32,6 +32,24 @@ class Tale extends React.Component<any, TState> {
 
   twittertale = () => {
     console.log("twittertale");
+    window.open('https://twitter.com/intent/tweet?text=테일 이벤트 목표 ' +
+				this.state.eventPointGoal +
+				'pt까지%0A%0A' +
+				'라이브런 : 일반곡 ' +
+        this.state.liverun.normalSongCnt +
+				'회, 이벤트곡 ' +
+        this.state.liverun.ellegant_stage_cnt +
+				'회, 주얼 ' +
+        this.state.liverun.jewel +
+				'개 소모 예상%0A' +
+				'영업런 : 10배수 티켓 라이브 ' +
+        this.state.salesrun.sales_Cnt +
+				'회, 이벤트곡 ' +
+        this.state.salesrun.ellegant_stage_o_cnt +
+				'회, 주얼 ' +
+        this.state.salesrun.jewel_o +
+				'개 소모 예상%0A%0A%23밀리시타_계산기 https%3A%2F%2Fmilli-calc.tistory.com%2F'
+				, '_blank', "height=400,width=600")
   }
 
   onChangeRegion = (e: string) => {
