@@ -97,7 +97,7 @@ class Tale extends React.Component<any, TState> {
         ...this.state.liverun,
         normalSong_Multiplier: e,
       }
-    })
+    }, this.onClickCalcBtn)
   }
 
   onChangeSalesRunSalesCntMultiplier = (e: string) => {
@@ -108,7 +108,7 @@ class Tale extends React.Component<any, TState> {
         ...this.state.salesrun,
         sales_Multiplier: e,
       }
-    })
+    }, this.onClickCalcBtn)
   }
 
   render() {

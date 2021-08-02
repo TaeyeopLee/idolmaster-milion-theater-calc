@@ -100,7 +100,7 @@ class Tour extends React.Component<any, TState> {
         ...this.state.liverun,
         normalSong_Multiplier: e,
       },
-    });
+    }, this.onClickCalcBtn)
   };
 
   onChangeInputLiveRunEventSongMultiplier = (e: string) => {
@@ -110,7 +110,7 @@ class Tour extends React.Component<any, TState> {
         ...this.state.liverun,
         eventSong_Multiplier: e,
       },
-    });
+    }, this.onClickCalcBtn)
   };
 
   onChangeInputSalesRunEventSongMultiplier = (e: string) => {
@@ -121,7 +121,7 @@ class Tour extends React.Component<any, TState> {
         ...this.state.salesrun,
         eventSong_o_Multiplier: e,
       },
-    });
+    }, this.onClickCalcBtn)
   };
 
   onChangeRegion = (e: string) => {
@@ -145,7 +145,7 @@ class Tour extends React.Component<any, TState> {
     this.setState({
       ...this.state,
       eventSongMultiplier: e,
-    });
+    }, this.onClickCalcBtn)
   };
 
   onChangeSalesRunSalesCntMultiplier = (e: string) => {
@@ -156,7 +156,7 @@ class Tour extends React.Component<any, TState> {
         ...this.state.salesrun,
         sales_Multiplier: e,
       }
-    })
+    }, this.onClickCalcBtn)
   }
 
   render() {

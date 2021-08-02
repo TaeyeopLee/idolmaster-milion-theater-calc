@@ -98,7 +98,7 @@ class Theater extends React.Component<any, TState> {
         ...this.state.liverun,
         normalSong_Multiplier: e,
       }
-    })
+    }, this.onClickCalcBtn)
   }
 
   onChangeInputLiveRunEventSongMultiplier = (e: string) => {
@@ -108,7 +108,7 @@ class Theater extends React.Component<any, TState> {
         ...this.state.liverun,
         eventSong_Multiplier: e,
       }
-    })
+    }, this.onClickCalcBtn)
   }
 
   onChangeInputSalesRunEventSongMultiplier = (e: string) => {
@@ -119,7 +119,7 @@ class Theater extends React.Component<any, TState> {
         ...this.state.salesrun,
         eventSong_o_Multiplier: e,
       }
-    })
+    }, this.onClickCalcBtn)
   }
 
   onChangeRegion = (e: string) => {
