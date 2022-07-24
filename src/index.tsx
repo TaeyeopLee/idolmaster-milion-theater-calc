@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Footer from './components/Footer';
+import Footer from './pages/Footer';
 import Router from './route';
 
 export const MULTIPLIER = {
@@ -54,15 +54,10 @@ export type TState = {
   };
 }
 
-class Home extends React.Component<{}, TState> {
-  constructor(props: any) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-      	<div className="container">
+const Home = () => {
+  return (
+      <>
+        <div className="container">
           <div className="part_header" id="part_header">
             <div className="header_black">
               <div className="header_title" id="title_name">
@@ -75,12 +70,41 @@ class Home extends React.Component<{}, TState> {
               </div>
             </div>
           </div>
-          <Router props={{page: 'theater'}} />
+          <Router pageName={'theater'} />
           <Footer />
         </div>
-      </React.Fragment>
-    )
-  }
+      </>
+  )
 }
+
+
+// class HomeClass extends React.Component<{}, TState> {
+//   constructor(props: any) {
+//     super(props);
+//   }
+//
+//   render() {
+//     return (
+//       <React.Fragment>
+//       	<div className="container">
+//           <div className="part_header" id="part_header">
+//             <div className="header_black">
+//               <div className="header_title" id="title_name">
+//                 밀리시타 이벤트 포인트 계산기
+//               </div>
+//               <div className="header_name">
+//                 <span>업데이트 : 2021년 06월 11일</span>
+//                 <br />
+//                 <span><a href="http://twitter.com/ln_sling">만든사람 : 라인슬링</a></span>
+//               </div>
+//             </div>
+//           </div>
+//           <Router props={{page: 'theater'}} />
+//           <Footer />
+//         </div>
+//       </React.Fragment>
+//     )
+//   }
+// }
 
 ReactDOM.render(<Home />, document.getElementById('app'));
